@@ -14,7 +14,7 @@ public class UserServiceTest {
     private final byte testAge = 5;
 
 
-    //@Test
+    @Test
     public void dropUsersTable() {
         try {
             userService.dropUsersTable();
@@ -24,7 +24,7 @@ public class UserServiceTest {
         }
     }
 
-    //@Test
+    @Test
     public void createUsersTable() {
         try {
             userService.dropUsersTable();
@@ -34,7 +34,7 @@ public class UserServiceTest {
         }
     }
 
-    //@Test
+    @Test
     public void saveUser() {
         try {
             userService.dropUsersTable();
