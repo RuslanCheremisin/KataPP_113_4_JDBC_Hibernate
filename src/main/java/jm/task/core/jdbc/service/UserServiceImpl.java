@@ -10,7 +10,6 @@ public class UserServiceImpl implements UserService {
 
     private final UserDao userDAO = new UserDaoJDBCImpl();
 
-
     public void createUsersTable() {
         userDAO.createUsersTable();
     }
@@ -21,6 +20,7 @@ public class UserServiceImpl implements UserService {
 
     public void saveUser(String name, String lastName, byte age) {
         userDAO.saveUser(name, lastName, age);
+        System.out.println("User с именем " + name + " " + lastName + " добавлен в базу данных");
     }
 
     public void removeUserById(long id) {
