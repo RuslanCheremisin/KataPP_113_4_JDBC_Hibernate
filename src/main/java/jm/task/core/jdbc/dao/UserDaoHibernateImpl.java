@@ -65,9 +65,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void saveUser(String name, String lastName, byte age) {
         Transaction transaction = null;
-        Session session = null;
-        try {
-            session = sessionFactory.openSession();
+        try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
             User user = new User(name, lastName, age);
             session.save(user);
@@ -77,10 +75,6 @@ public class UserDaoHibernateImpl implements UserDao {
                 transaction.rollback();
             }
             e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 
